@@ -17,8 +17,8 @@ namespace ArmyStackGame.Army
 			while (cost >= minCost)
 			{
 				var availableUnits = GetAvailableUnitsByCost(cost);
-				var index = new Random(availableUnits.Count);
-				var randomUnitConfig = availableUnits[index.Next()];
+				var index = new Random();
+				var randomUnitConfig = availableUnits[index.Next(availableUnits.Count)];
 
 				allUnits.Add(CreateUnit(randomUnitConfig.Key));
 				cost -= randomUnitConfig.Value.Cost;
