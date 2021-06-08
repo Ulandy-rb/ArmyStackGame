@@ -22,6 +22,17 @@ namespace ArmyStackGame.Configs
 		/// Стоимость
 		/// </summary>
 		public int Cost;
-
+		/// <summary>
+		/// Шанс выполнения спецдействия
+		/// </summary>
+		public int Chance;
+		/// <summary>
+		/// Дальность взаимодействия спец возвожности, измеряется в юнитах
+		/// </summary>
+		public int Range;
+		/// <summary>
+		/// Сила действия спец возможности
+		/// </summary>
+		public int Power;
 	}
 }

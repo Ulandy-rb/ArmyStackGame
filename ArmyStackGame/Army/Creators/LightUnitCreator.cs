@@ -8,7 +8,7 @@ namespace ArmyStackGame.Army
 		public IUnit Create()
 		{
 			var healer = UnitConfig.Units[UnitType.LightUnit];
-			return new LightUnit(healer.Health, healer.Defense, healer.Attack);
+			return new LightUnit(healer.Health, healer.Defense, healer.Attack, healer.Chance, healer.Range);
 		}
 	}
 }

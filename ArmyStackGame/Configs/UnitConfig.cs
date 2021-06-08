@@ -14,8 +14,10 @@ namespace ArmyStackGame.Configs
 					Health = 100,
 					Attack = 30,
 					Defense = 30,
-					Cost = 25
-
+					Cost = 25,
+					Chance = 75,
+					Range = 1,
+					Power = 0
 				}
 			},
 			{
@@ -25,7 +27,6 @@ namespace ArmyStackGame.Configs
 					Attack = 70,
 					Defense = 70,
 					Cost = 75
-
 				}
 			},
 			{
@@ -34,8 +35,10 @@ namespace ArmyStackGame.Configs
 					Health = 100,
 					Attack = 40,
 					Defense = 30,
-					Cost = 50
-
+					Cost = 50,
+					Chance = 50,
+					Range = 3,
+					Power = 60
 				}
 			},
 			{
@@ -44,7 +47,10 @@ namespace ArmyStackGame.Configs
 					Health = 100,
 					Attack = 15,
 					Defense = 15,
-					Cost = 75
+					Cost = 75,
+					Chance = 30,
+					Range = 1,
+					Power = 30
 				}
 			},
 			{
@@ -53,8 +59,9 @@ namespace ArmyStackGame.Configs
 					Health = 100,
 					Attack = 50,
 					Defense = 50,
-					Cost = 75
-
+					Cost = 75,
+					Chance = 30,
+					Range = 1
 				}
 			},
 			{
@@ -65,6 +72,36 @@ namespace ArmyStackGame.Configs
 					Defense = 90,
 					Cost = 100
 
+				}
+			}
+
+		};
+
+		public static Dictionary<ImproveTypes, ImproveParams> Improves { get; } = new Dictionary<ImproveTypes, ImproveParams>()
+		{
+			{
+				ImproveTypes.Helmet, new ImproveParams
+				{
+					Defence = 10
+				}
+			},
+			{
+				ImproveTypes.Horse, new ImproveParams
+				{
+					Defence = 10,
+					Attack = 15
+				}
+			},
+			{
+				ImproveTypes.Pike, new ImproveParams
+				{
+					Defence = 15
+				}
+			},
+			{
+				ImproveTypes.Shield, new ImproveParams
+				{
+					Defence = 15
 				}
 			}
 

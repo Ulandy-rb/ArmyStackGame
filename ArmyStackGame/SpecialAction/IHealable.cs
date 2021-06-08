@@ -6,6 +6,6 @@ namespace ArmyStackGame.SpecialAction
     /// </summary>
     public interface IHealable
     {
-        public void Heal();
+        public void Heal(int healPower);
     }
 }

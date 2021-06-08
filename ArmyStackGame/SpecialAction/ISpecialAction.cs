@@ -1,11 +1,17 @@
-﻿using System;
+﻿using ArmyStackGame.Units;
+using System;
+using System.Collections.Generic;
+
 namespace ArmyStackGame.SpecialAction
 {
     /// <summary>
-    /// интерфес спец действия
+    /// Интерфейс спец действия
     /// </summary>
-    public interface ISpecialAction
+    interface ISpecialAction
     {
-        public void DoSpecialAction();
-    }
+        int Chance { get; }
+        int Range { get; }
+        int Power { get; }
+        void DoSpecialAction(IArmy targetArmy, int position, IEnumerable<int> targetRange);
+	}
 }
