@@ -17,5 +17,10 @@ namespace ArmyStackGame.Improvements
 			var config = UnitConfig.Improves[ImproveTypes.Pike];
 			currAttack = config.Attack;
 		}
+
+		public override string ToString()
+		{
+			return $"{base.ToString()} + Pike: Attack - {currAttack} ";
+		}
 	}
 }

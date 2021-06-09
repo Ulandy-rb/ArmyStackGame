@@ -13,7 +13,9 @@ namespace ArmyStackGame.Units
 
 		}
 
-		public int ImprovementsCount => 0;
+		//public int ImprovementsCount => 0;
+
+		public int ImprovementsCount { get; set; } = 0;
 
 		public bool CanImprove(Type type)
 		{
@@ -23,6 +25,11 @@ namespace ArmyStackGame.Units
 		public void Heal(int healPower)
 		{
 			Health += healPower;
+		}
+
+		public override string ToString()
+		{
+			return $"Heavy Unit: {base.ToString()}";
 		}
 	}
 }

@@ -17,5 +17,10 @@ namespace ArmyStackGame.Improvements
 			var config = UnitConfig.Improves[ImproveTypes.Helmet];
 			currDefense = config.Defence;
 		}
+		public override string ToString()
+		{
+			return $"{base.ToString()} + Helment: Defense - {currDefense} ";
+		}
 	}
+
 }

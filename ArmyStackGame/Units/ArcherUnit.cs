@@ -21,13 +21,17 @@ namespace ArmyStackGame.Units
 
 		public int Power { get; }
 
+		public bool IsFriendly =>false;
+
 		public IUnit Clone()
         {
             return (IUnit)this.MemberwiseClone();
         }
 		public void DoSpecialAction(IArmy targetArmy, int position, IEnumerable<int> targetRange)
 		{
-			if (new Random().Next() <= Chance)
+			if (targetRange == null)
+				return;
+			if (new Random().Next(100) <= Chance)
 			{
 				var newUnits = new List<IUnit>();
 				foreach (var index in targetRange)
@@ -42,9 +46,9 @@ namespace ArmyStackGame.Units
 				}
 				if (newUnits.Count == 0)
 					return;
-				IUnit targetUnit = newUnits[new Random().Next(targetArmy.Units.Count)];
+				IUnit targetUnit = newUnits[new Random().Next(newUnits.Count)];
 				var command = new HitCommand(this, targetUnit, Power);
-				new UndoRedoManager().RunCommand(command);
+				Engine.GetInstance().CommandManager.RunCommand(command);
 			}
 		}
 
@@ -52,5 +56,10 @@ namespace ArmyStackGame.Units
         {
             Health += healPower;
         }
-    }
+
+		public override string ToString()
+		{
+			return $"Archer: {base.ToString()}";
+		}
+	}
 }

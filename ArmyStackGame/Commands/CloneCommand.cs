@@ -1,4 +1,5 @@
-﻿using ArmyStackGame.SpecialAction;
+﻿using ArmyStackGame.Logger;
+using ArmyStackGame.SpecialAction;
 using ArmyStackGame.Units;
 using System;
 using System.Collections.Generic;
@@ -18,13 +19,14 @@ namespace ArmyStackGame.Commands
 			this.targetArmy = targetArmy;
 			this.targetUnit = targetUnit;
 		}
-		public void Run()
+		public void Run(ILogger logger)
 		{
 			var newUnit = targetUnit.Clone();
 			targetArmy.Units.Add((IUnit)newUnit);
+			logger.Log($"{currUnit} clone {targetUnit}");
 		}
 
-		public void Undo()
+		public void Undo(ILogger logger)
 		{
 			targetArmy.Units.RemoveAt(targetArmy.Units.Count - 1);
 		}

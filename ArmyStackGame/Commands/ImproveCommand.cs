@@ -1,4 +1,5 @@
-﻿using ArmyStackGame.SpecialAction;
+﻿using ArmyStackGame.Logger;
+using ArmyStackGame.SpecialAction;
 using ArmyStackGame.Units;
 using ArmyStackGame.Units.ImproveDecorator;
 using System;
@@ -23,12 +24,13 @@ namespace ArmyStackGame.Commands
 			this.targetUnitPosition = targetUnitPosition;
 			this.improve = improve;
 		}
-		public void Run()
+		public void Run(ILogger logger)
 		{
 			targetArmy.Units[targetUnitPosition] = improve;
+			logger.Log($"{currUnit} dressed {targetUnit} with {improve}");
 		}
 
-		public void Undo()
+		public void Undo(ILogger logger)
 		{
 			targetArmy.Units[targetUnitPosition] = (IUnit)targetUnit;
 		}

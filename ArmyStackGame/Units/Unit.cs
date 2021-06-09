@@ -30,6 +30,11 @@ namespace ArmyStackGame.Units
 		{
 			Health -= damage;
 		}
+
+		public override string ToString()
+		{
+			return $"Health - {Health}, Attack - {Attack}, Defense - {Defense}";
+		}
 		#endregion
 	}
 }

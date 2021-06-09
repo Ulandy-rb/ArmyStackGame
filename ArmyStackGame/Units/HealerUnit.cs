@@ -21,6 +21,8 @@ namespace ArmyStackGame.Units
 
 		public int Power { get; }
 
+		public bool IsFriendly => true;
+
 		public void DoSpecialAction()
         {
             throw new NotImplementedException();
@@ -28,7 +30,9 @@ namespace ArmyStackGame.Units
 
 		public void DoSpecialAction(IArmy targetArmy, int position, IEnumerable<int> targetRange)
 		{
-			if (new Random().Next() <= Chance)
+			if (targetRange == null)
+				return;
+			if (new Random().Next(100) <= Chance)
 			{
 				var newUnits = new List<IHealable>();
 				foreach (var index in targetRange)
@@ -43,9 +47,9 @@ namespace ArmyStackGame.Units
 				}
 				if (newUnits.Count == 0)
 					return;
-				IHealable targetUnit = newUnits[new Random().Next(targetArmy.Units.Count)];
+				IHealable targetUnit = newUnits[new Random().Next(newUnits.Count)];
 				var command = new HealCommand(this,targetUnit, Power);
-				new UndoRedoManager().RunCommand(command);
+				Engine.GetInstance().CommandManager.RunCommand(command);
 			}
 		}
 
@@ -53,5 +57,10 @@ namespace ArmyStackGame.Units
         {
             Health += healPower;
         }
-    }
+
+		public override string ToString()
+		{
+			return $"Healer Unit: {base.ToString()}";
+		}
+	}
 }

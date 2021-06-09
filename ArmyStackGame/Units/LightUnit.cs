@@ -23,13 +23,17 @@ namespace ArmyStackGame.Units
 
 		public int Power { get; } = 0;
 
+		public bool IsFriendly => true;
+
 		public IUnit Clone()
         {
             return (IUnit)this.MemberwiseClone();
         }
 		public void DoSpecialAction(IArmy targetArmy, int position, IEnumerable<int> targetRange)
 		{
-			if (new Random().Next() <= Chance)
+			if (targetRange == null)
+				return;
+			if (new Random().Next(100) <= Chance)
 			{
 				var newUnits = new List<Tuple<int, IImprovable>>();
 				foreach (var index in targetRange)
@@ -44,7 +48,7 @@ namespace ArmyStackGame.Units
 				}
 				if (newUnits.Count == 0)
 					return;
-				var target = newUnits[new Random().Next(targetArmy.Units.Count)];
+				var target = newUnits[new Random().Next(newUnits.Count)];
 				var targetUnit = target.Item2;
 				var targetIndexPosition = target.Item1;
 
@@ -62,7 +66,7 @@ namespace ArmyStackGame.Units
 						var targetImprove = (IUnit)Activator.CreateInstance(improve, targetUnit);
 
 						var command = new ImproveCommand(this, targetUnit, targetArmy, targetIndexPosition, targetImprove);
-						new UndoRedoManager().RunCommand(command);
+						Engine.GetInstance().CommandManager.RunCommand(command);
 						break;
 					}
 					types.RemoveAt(i);
@@ -74,5 +78,10 @@ namespace ArmyStackGame.Units
         {
             Health += healPower;
         }
-    }
+
+		public override string ToString()
+		{
+			return $"Ligth Unit: {base.ToString()}";
+		}
+	}
 }

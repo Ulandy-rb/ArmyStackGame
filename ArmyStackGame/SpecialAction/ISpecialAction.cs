@@ -12,6 +12,8 @@ namespace ArmyStackGame.SpecialAction
         int Chance { get; }
         int Range { get; }
         int Power { get; }
+
+        bool IsFriendly { get; }
         void DoSpecialAction(IArmy targetArmy, int position, IEnumerable<int> targetRange);
 	}
 }

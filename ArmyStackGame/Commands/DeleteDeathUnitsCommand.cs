@@ -1,4 +1,5 @@
-﻿using ArmyStackGame.Units;
+﻿using ArmyStackGame.Logger;
+using ArmyStackGame.Units;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,8 +14,9 @@ namespace ArmyStackGame.Commands
 		public DeleteDeathUnitsCommand( IArmy targetArmy)
 		{
 			this.targetArmy = targetArmy;
+			deathUnits = new List<Tuple<int, IUnit>>();
 		}
-		public void Run()
+		public void Run(ILogger logger)
 		{
 			for (int i = 0; i < targetArmy.Units.Count; i++)
 			{
@@ -26,7 +28,7 @@ namespace ArmyStackGame.Commands
 			}
 		}
 
-		public void Undo()
+		public void Undo(ILogger logger)
 		{
 			for (int i = 0; i < deathUnits.Count; i++)
 			{

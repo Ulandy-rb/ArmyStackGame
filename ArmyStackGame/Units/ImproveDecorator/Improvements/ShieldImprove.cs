@@ -17,5 +17,10 @@ namespace ArmyStackGame.Improvements
 			var config = UnitConfig.Improves[ImproveTypes.Shield];
 			currDefense = config.Defence;
 		}
+
+		public override string ToString()
+		{
+			return $"{base.ToString()} + Shield: Defense - {currDefense} ";
+		}
 	}
 }

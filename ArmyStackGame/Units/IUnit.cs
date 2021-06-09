@@ -19,6 +19,8 @@ namespace ArmyStackGame.Units
 		public void TakeDamage(int damage)
 		{
 		}
+
+		public string ToString();
 		#endregion
 	}
 }

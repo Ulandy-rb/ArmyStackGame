@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArmyStackGame.Logger;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,14 +7,22 @@ namespace ArmyStackGame.Commands
 {
 	class UndoRedoManager
 	{
-		private readonly CommandListHellper commandList = new CommandListHellper();
+		private readonly CommandListHellper commandList;
 		private readonly Stack<CommandListHellper> undoList = new Stack<CommandListHellper>();
 		private readonly Stack<CommandListHellper> redoList = new Stack<CommandListHellper>();
-		private bool emptyUndo => undoList.Count == 0;
-		private bool emptyRedo => redoList.Count == 0;
+		public bool emptyUndo => undoList.Count == 0;
+		public bool emptyRedo => redoList.Count == 0;
+
+		ILogger logger;
+
+		public UndoRedoManager(ILogger logger)
+		{
+			this.logger = logger;
+			commandList = new CommandListHellper(logger);
+		}
 		public void RunCommand(ICommand command)
 		{
-			command.Run();
+			command.Run(logger);
 			commandList.Add(command);	
 		}
 		public void EndTurn()
@@ -29,7 +38,8 @@ namespace ArmyStackGame.Commands
 			if (!emptyRedo)
 			{
 				var tempCommandList = redoList.Pop();
-				undoList.Push(tempCommandList);
+				tempCommandList.Run();
+				undoList.Push(tempCommandList);				
 			}
 		}
 		public void Undo()
@@ -37,7 +47,8 @@ namespace ArmyStackGame.Commands
 			if (!emptyUndo)
 			{
 				var tempCommandList = undoList.Pop();
-				redoList.Push(tempCommandList);
+				tempCommandList.Undo();
+				redoList.Push(tempCommandList);				
 			}
 		}
 	}

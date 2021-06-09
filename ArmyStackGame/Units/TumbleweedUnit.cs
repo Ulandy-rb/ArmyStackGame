@@ -10,5 +10,9 @@ namespace ArmyStackGame.Units
 		{
 
 		}
+		public override string ToString()
+		{
+			return $"Tumbleweed: {base.ToString()}";
+		}
 	}
 }

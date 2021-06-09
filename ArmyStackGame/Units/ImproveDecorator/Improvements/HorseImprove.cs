@@ -21,5 +21,10 @@ namespace ArmyStackGame.Improvements
 			currDefense = config.Defence;
 			currAttack = config.Attack;
 		}
+
+		public override string ToString()
+		{
+			return $"{base.ToString()} + Horse: Defense - {currDefense}, Attack - {currAttack} ";
+		}
 	}
 }

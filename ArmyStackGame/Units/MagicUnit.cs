@@ -13,6 +13,9 @@ namespace ArmyStackGame.Units
 		public int Range { get; }
 
 		public int Power { get; } = 0;
+
+		public bool IsFriendly => true;
+
 		public MagicUnit(int maxhealth, int defense, int attack, int chance, int range) : base(maxhealth, defense, attack)
 		{
 			Chance = chance;
@@ -21,7 +24,9 @@ namespace ArmyStackGame.Units
 		
 		public void DoSpecialAction(IArmy targetArmy, int position, IEnumerable<int> targetRange)
 		{
-			if (new Random().Next() <= Chance)
+			if (targetRange == null)
+				return;
+			if (new Random().Next(100) <= Chance)
 			{
 				var newUnits = new List<IClonable>();
 				foreach (var index in targetRange)
@@ -36,10 +41,14 @@ namespace ArmyStackGame.Units
 				}
 				if (newUnits.Count == 0)
 					return;
-				IClonable targetUnit = newUnits[new Random().Next(targetArmy.Units.Count)];
+				IClonable targetUnit = newUnits[new Random().Next(newUnits.Count)];
 				var command = new CloneCommand(this, targetUnit, targetArmy);
-				new UndoRedoManager().RunCommand(command);
+				Engine.GetInstance().CommandManager.RunCommand(command);
 			}
+		}
+		public override string ToString()
+		{
+			return $"Mag: {base.ToString()}";
 		}
 	}
 }

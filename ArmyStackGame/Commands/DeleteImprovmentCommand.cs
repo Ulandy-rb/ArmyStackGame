@@ -1,4 +1,5 @@
-﻿using ArmyStackGame.SpecialAction;
+﻿using ArmyStackGame.Logger;
+using ArmyStackGame.SpecialAction;
 using ArmyStackGame.Units;
 using ArmyStackGame.Units.ImproveDecorator;
 using ArmyStackGame.Units.ImproveDecorator.Improvements;
@@ -22,12 +23,13 @@ namespace ArmyStackGame.Commands
 			this.targetUnit = targetUnit;
 			this.targetUnitPosition = targetUnitPosition;
 		}
-		public void Run()
+		public void Run(ILogger logger)
 		{
 			targetArmy.Units[targetUnitPosition] = ((IImprover)targetUnit).Unit;
+			logger.Log($"{currUnit} lost improvment");
 		}
 
-		public void Undo()
+		public void Undo(ILogger logger)
 		{
 			targetArmy.Units[targetUnitPosition] = (IUnit)targetUnit;
 		}

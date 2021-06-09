@@ -8,5 +8,8 @@ namespace ArmyStackGame.Units
 	public interface IArmy 
 	{
 		List<IUnit> Units { get; set; }
+		bool IsAllDead { get; }
+
+		string ToString();
 	}
 }

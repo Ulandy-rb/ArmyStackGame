@@ -67,7 +67,7 @@ namespace ArmyStackGame.Configs
 			{
 				UnitType.TumbleweedUnit, new UnitParams
 				{
-					Health = 100,
+					Health = 400,
 					Attack = 0,
 					Defense = 90,
 					Cost = 100

@@ -36,6 +36,9 @@ namespace ArmyStackGame.Units.ImproveDecorator
 			Defense = ((IUnit)unit).Defense;
 			MaxHealth = ((IUnit)unit).MaxHealth;
 		}
-
+		public override string ToString()
+		{
+			return Unit.ToString();
+		}
 	}
 }
