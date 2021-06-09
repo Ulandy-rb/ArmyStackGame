@@ -21,7 +21,8 @@ namespace ArmyStackGame.Commands
 		public void Run(ILogger logger)
 		{
 			if (targetUnit.Defense != 0)
-				realDamage = maxDamage - maxDamage / targetUnit.Defense;
+				realDamage = (int)(maxDamage - targetUnit.Defense * 0.5);
+			//realDamage = maxDamage - maxDamage / targetUnit.Defense;
 			if (realDamage > targetUnit.Health)
 				realDamage = targetUnit.Health;
 			targetUnit.TakeDamage(realDamage);

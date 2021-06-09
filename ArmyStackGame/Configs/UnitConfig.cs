@@ -38,7 +38,7 @@ namespace ArmyStackGame.Configs
 					Cost = 50,
 					Chance = 50,
 					Range = 3,
-					Power = 60
+					Power = 70
 				}
 			},
 			{
