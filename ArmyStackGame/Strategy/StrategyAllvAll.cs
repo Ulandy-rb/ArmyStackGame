@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ArmyStackGame.Strategy
 {
-	class StrategyAllvAll : IStrategy
+	public class StrategyAllvAll : IStrategy
 	{
 		public List<int> GetIndexOpponents(IArmy firstarmy, IArmy secondArmy)
 		{

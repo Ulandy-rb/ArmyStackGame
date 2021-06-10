@@ -6,7 +6,7 @@ using ArmyStackGame.SpecialAction;
 
 namespace ArmyStackGame.Units
 {
-	class MagicUnit :Unit, ISpecialAction
+	public class MagicUnit :Unit, ISpecialAction
 	{
 		public int Chance { get; }
 

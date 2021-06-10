@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ArmyStackGame.Commands
 {
-	class UndoRedoManager
+	public class UndoRedoManager
 	{
 		private readonly CommandListHellper commandList;
 		private readonly Stack<CommandListHellper> undoList = new Stack<CommandListHellper>();

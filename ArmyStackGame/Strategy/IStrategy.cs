@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ArmyStackGame.Strategy
 {
-	interface IStrategy
+	public interface IStrategy
 	{
 		List<int> GetIndexOpponents(IArmy firstarmy,IArmy secondArmy);
 		IEnumerable<int> GetPosiblePositionsForActions(IArmy army, IArmy enemyArmy, ISpecialAction currUnit, int currUnitPosition);

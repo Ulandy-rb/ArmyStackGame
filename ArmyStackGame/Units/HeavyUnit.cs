@@ -6,7 +6,7 @@ using ArmyStackGame.Units.ImproveDecorator.Improvements;
 
 namespace ArmyStackGame.Units
 {
-	class HeavyUnit : Unit, IHealable, IImprovable
+	public class HeavyUnit : Unit, IHealable, IImprovable
 	{
 		public HeavyUnit(int maxhealth, int defense,  int attack) : base(maxhealth, defense, attack)
 		{

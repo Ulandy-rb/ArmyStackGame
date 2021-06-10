@@ -10,7 +10,7 @@ using System.Text;
 
 namespace ArmyStackGame
 {
-	class Engine
+	public class Engine
 	{
         /// <summary>
         /// Стратегия боя

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ArmyStackGame.Strategy
 {
-	class StrategyNvN : IStrategy
+	public class StrategyNvN : IStrategy
 	{
 		private readonly int n;
 		public StrategyNvN(int n)

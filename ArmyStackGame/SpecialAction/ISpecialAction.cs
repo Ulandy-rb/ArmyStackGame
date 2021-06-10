@@ -7,7 +7,7 @@ namespace ArmyStackGame.SpecialAction
     /// <summary>
     /// Интерфейс спец действия
     /// </summary>
-    interface ISpecialAction
+    public interface ISpecialAction
     {
         int Chance { get; }
         int Range { get; }

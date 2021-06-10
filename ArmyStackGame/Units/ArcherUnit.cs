@@ -6,7 +6,7 @@ using ArmyStackGame.SpecialAction;
 
 namespace ArmyStackGame.Units
 {
-    class ArcherUnit : Unit, IHealable, ISpecialAction, IUnit
+    public class ArcherUnit : Unit, IHealable, ISpecialAction, IUnit
     {
         public ArcherUnit(int maxhealth, int defense, int attack, int chance, int range, int power) : base(maxhealth, defense, attack)
         {

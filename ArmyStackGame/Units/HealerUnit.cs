@@ -6,7 +6,7 @@ using ArmyStackGame.SpecialAction;
 
 namespace ArmyStackGame.Units
 {
-	class HealerUnit : Unit, IHealable, ISpecialAction
+	public class HealerUnit : Unit, IHealable, ISpecialAction
 	{
 		public HealerUnit(int maxhealth, int defense, int attack, int chance, int range, int power) : base(maxhealth, defense, attack)
 		{

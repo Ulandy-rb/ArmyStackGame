@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ArmyStackGame.Strategy
 {
-	class Strategy1v1 : IStrategy
+	public class Strategy1v1 : IStrategy
 	{
 		public List<int> GetIndexOpponents(IArmy firstarmy, IArmy secondArmy)
 		{

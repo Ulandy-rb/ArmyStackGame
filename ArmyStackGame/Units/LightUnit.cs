@@ -9,7 +9,7 @@ using ArmyStackGame.Units.ImproveDecorator;
 
 namespace ArmyStackGame.Units
 {
-	class LightUnit : Unit, IUnit, IHealable, ISpecialAction
+	public class LightUnit : Unit, IUnit, IHealable, ISpecialAction
 	{
 		public LightUnit(int maxhealth, int defense, int attack, int chance, int range) : base (maxhealth, defense, attack)
 		{
