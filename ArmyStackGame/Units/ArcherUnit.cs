@@ -6,13 +6,14 @@ using ArmyStackGame.SpecialAction;
 
 namespace ArmyStackGame.Units
 {
-    public class ArcherUnit : Unit, IHealable, ISpecialAction, IUnit
+    public class ArcherUnit : Unit, IHealable, ISpecialAction, IUnit, IClonable
     {
         public ArcherUnit(int maxhealth, int defense, int attack, int chance, int range, int power) : base(maxhealth, defense, attack)
         {
             Chance = chance;
             Range = range;
             Power = power;
+			Id = ++Unit.ID;
         }
 
         public int Chance { get; }
@@ -59,7 +60,7 @@ namespace ArmyStackGame.Units
 
 		public override string ToString()
 		{
-			return $"Archer: {base.ToString()}";
+			return $"Archer #{Id}: {base.ToString()}";
 		}
 	}
 }

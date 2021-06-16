@@ -22,7 +22,7 @@ namespace ArmyStackGame.Strategy
 				return null;
 			var targetArmy = currUnit.IsFriendly ? army : enemyArmy;
 			var range = currUnit.Range;
-			var startIndex = currUnitPosition - range + 1;
+			var startIndex = currUnitPosition - range;
 			var endIndex = currUnitPosition + range;
 			if(currUnit.IsFriendly)
 			{

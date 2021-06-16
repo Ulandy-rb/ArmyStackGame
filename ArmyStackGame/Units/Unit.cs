@@ -6,16 +6,16 @@ namespace ArmyStackGame.Units
 {
 	public class Unit : IUnit
 	{
-		#region Свойства
 		public virtual int Health { get; set; }
 		public virtual int Attack { get; set; }
 		public virtual int Defense { get; set; }
 		public virtual int MaxHealth { get; set; }
 		public virtual bool IsDamage => Health < MaxHealth;
 		public virtual bool IsAlive => Health > 0;
-		#endregion
+		public virtual int Id { get; set; }
 
-		#region Инициализация 
+		protected static int ID = 0;
+
 		public Unit(int maxhealth, int defense, int attack)
 		{
 			Health = MaxHealth = maxhealth;
@@ -23,9 +23,7 @@ namespace ArmyStackGame.Units
 			Defense = defense;
 			Attack = attack;
 		}
-		#endregion
 
-		#region Методы
 		public void TakeDamage(int damage)
 		{
 			Health -= damage;
@@ -35,6 +33,5 @@ namespace ArmyStackGame.Units
 		{
 			return $"Health - {Health}, Attack - {Attack}, Defense - {Defense}";
 		}
-		#endregion
 	}
 }

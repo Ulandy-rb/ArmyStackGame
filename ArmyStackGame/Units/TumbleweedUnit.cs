@@ -8,11 +8,11 @@ namespace ArmyStackGame.Units
 	{
 		public TumbleweedUnit(int maxhealth, int defense, int attack) : base(maxhealth, defense, attack)
 		{
-
+			Id = ++Unit.ID;
 		}
 		public override string ToString()
 		{
-			return $"Tumbleweed: {base.ToString()}";
+			return $"Tumbleweed #{Id}: {base.ToString()}";
 		}
 	}
 }

@@ -6,6 +6,7 @@ using ArmyStackGame.Temp;
 using ArmyStackGame.Units;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace ArmyStackGame
 {
@@ -13,6 +14,7 @@ namespace ArmyStackGame
 	{
 		static void Main(string[] args)
 		{
+            Console.OutputEncoding = Encoding.UTF8;
             var gameStarted = false;
 
             MainCommand? command = null;
@@ -57,8 +59,7 @@ namespace ArmyStackGame
 
                                 break;
                             case SelectStrategyCommand.StrategyNVsN:
-                                var n = ConsoleGUI.ReadNForNVsNStrategy();
-                                _strategy = new StrategyNvN(n);
+                                _strategy = new StrategyNvN();
 
                                 break;
                             case SelectStrategyCommand.StrategyAllVsAll:
@@ -158,8 +159,7 @@ namespace ArmyStackGame
 
                                 break;
                             case SelectStrategyCommand.StrategyNVsN:
-                                var n = ConsoleGUI.ReadNForNVsNStrategy();
-                                strategy = new StrategyNvN(n);
+                                strategy = new StrategyNvN();
 
                                 break;
                             case SelectStrategyCommand.StrategyAllVsAll:

@@ -9,7 +9,7 @@ namespace ArmyStackGame.Units
 	{
 		List<IUnit> Units { get; set; }
 		bool IsAllDead { get; }
-
+		string Name { get; set; }
 		string ToString();
 	}
 }

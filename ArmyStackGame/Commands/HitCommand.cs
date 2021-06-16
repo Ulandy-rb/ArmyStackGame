@@ -20,13 +20,11 @@ namespace ArmyStackGame.Commands
 		}
 		public void Run(ILogger logger)
 		{
-			if (targetUnit.Defense != 0)
-				realDamage = (int)(maxDamage - targetUnit.Defense * 0.5);
-			//realDamage = maxDamage - maxDamage / targetUnit.Defense;
+			realDamage = maxDamage*(100 - targetUnit.Defense)/100;
 			if (realDamage > targetUnit.Health)
 				realDamage = targetUnit.Health;
 			targetUnit.TakeDamage(realDamage);
-			logger.Log($"{currUnit} hit {targetUnit} for {realDamage} points");
+			logger.Log($"\u203C {currUnit} hit {targetUnit} for {realDamage} points\n");
 		}
 
 		public void Undo(ILogger logger)

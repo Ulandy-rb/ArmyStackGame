@@ -6,21 +6,17 @@ namespace ArmyStackGame.Units
 {
 	public interface IUnit
 	{
-		#region
 		int Health { get; set; }
 		int Attack { get; }
 		int Defense { get; }
 		int MaxHealth { get; }
 		bool IsDamage { get; }
 		bool IsAlive { get; }
-		#endregion
-
-		#region Методы
+		int Id { get; }
 		public void TakeDamage(int damage)
 		{
 		}
 
 		public string ToString();
-		#endregion
 	}
 }

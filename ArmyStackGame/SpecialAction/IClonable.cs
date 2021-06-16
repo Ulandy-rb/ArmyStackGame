@@ -8,6 +8,6 @@ namespace ArmyStackGame.SpecialAction
     /// </summary>
     public interface IClonable
     {
-        public IClonable Clone();
+        public IUnit Clone();
     }
 }

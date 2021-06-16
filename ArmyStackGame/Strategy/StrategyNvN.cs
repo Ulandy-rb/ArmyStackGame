@@ -9,11 +9,8 @@ namespace ArmyStackGame.Strategy
 {
 	public class StrategyNvN : IStrategy
 	{
-		private readonly int n;
-		public StrategyNvN(int n)
-		{
-			this.n = n;
-		}
+		private readonly int n = 3;
+
 		public List<int> GetIndexOpponents(IArmy firstarmy, IArmy secondArmy)
 		{
 			var indexList = new List<int>();
@@ -41,7 +38,7 @@ namespace ArmyStackGame.Strategy
 
 			if(currUnit.IsFriendly)
 			{
-				startIndex = newCurrUnitPosition - range + 1;
+				startIndex = newCurrUnitPosition - range;
 				endIndex = newCurrUnitPosition + range;
 
 				if (startIndex < 0)

@@ -6,13 +6,14 @@ using ArmyStackGame.SpecialAction;
 
 namespace ArmyStackGame.Units
 {
-	public class HealerUnit : Unit, IHealable, ISpecialAction
+	public class HealerUnit : Unit, ISpecialAction
 	{
 		public HealerUnit(int maxhealth, int defense, int attack, int chance, int range, int power) : base(maxhealth, defense, attack)
 		{
             Chance = chance;
 			Range = range;
 			Power = power;
+			Id = ++Unit.ID;
 		}
 
 		public int Chance { get; }
@@ -23,10 +24,6 @@ namespace ArmyStackGame.Units
 
 		public bool IsFriendly => true;
 
-		public void DoSpecialAction()
-        {
-            throw new NotImplementedException();
-        }
 
 		public void DoSpecialAction(IArmy targetArmy, int position, IEnumerable<int> targetRange)
 		{
@@ -60,7 +57,7 @@ namespace ArmyStackGame.Units
 
 		public override string ToString()
 		{
-			return $"Healer Unit: {base.ToString()}";
+			return $"Healer Unit #{Id}: {base.ToString()}";
 		}
 	}
 }

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ArmyStackGame.Units.ImproveDecorator
 {
-	abstract class ImproveDecorator<T>: IImprover where T: Unit, IImprovable, IUnit
+	abstract class ImproveDecorator<T>: IImprover, IUnit where T: IImprovable, IUnit
 	{
 		int ImprovementsCount => ((IImprovable)Unit).ImprovementsCount + 1;
 
@@ -22,19 +22,21 @@ namespace ArmyStackGame.Units.ImproveDecorator
 		}
 
 		public IUnit Unit { get; protected set; }
-		public int Health { get; set; }
-		public virtual int Attack { get; }
-		public virtual int Defense { get; }
-		public int MaxHealth { get; }
-		public bool IsDamage => Health < MaxHealth;
-		public bool IsAlive { get; set; } = true;
+		public int Health
+		{
+			get => Unit.Health;
+			set => Unit.Health = value;
+		}
+		public virtual int Attack => Unit.Attack;
+		public virtual int Defense => Unit.Defense;
+		public int MaxHealth => Unit.MaxHealth;
+		public bool IsDamage => Unit.IsDamage;
+		public bool IsAlive => Unit.IsAlive;
+		public int Id => Unit.Id;
+
 		protected ImproveDecorator(T unit)
 		{
 			this.Unit = unit;
-			Health = ((IUnit)unit).Health;
-			Attack = ((IUnit)unit).Attack;
-			Defense = ((IUnit)unit).Defense;
-			MaxHealth = ((IUnit)unit).MaxHealth;
 		}
 		public override string ToString()
 		{

@@ -48,7 +48,7 @@ namespace ArmyStackGame.Configs
 					Attack = 15,
 					Defense = 15,
 					Cost = 75,
-					Chance = 30,
+					Chance = 75,
 					Range = 1,
 					Power = 30
 				}
@@ -60,7 +60,7 @@ namespace ArmyStackGame.Configs
 					Attack = 50,
 					Defense = 50,
 					Cost = 75,
-					Chance = 30,
+					Chance = 50,
 					Range = 1
 				}
 			},

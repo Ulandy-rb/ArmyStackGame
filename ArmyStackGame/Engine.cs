@@ -74,8 +74,8 @@ namespace ArmyStackGame
             // Создание армий
             var factory = new RandomFactory();
 
-            FirstArmy = new Army.Army(cost, factory);
-            SecondArmy = new Army.Army(cost, factory);
+            FirstArmy = new Army.Army("Red",cost, factory);
+            SecondArmy = new Army.Army("Red", cost, factory);
         }
 
         /// <summary>

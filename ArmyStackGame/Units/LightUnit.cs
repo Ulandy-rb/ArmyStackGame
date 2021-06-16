@@ -9,12 +9,13 @@ using ArmyStackGame.Units.ImproveDecorator;
 
 namespace ArmyStackGame.Units
 {
-	public class LightUnit : Unit, IUnit, IHealable, ISpecialAction
+	public class LightUnit : Unit, IUnit, IHealable, ISpecialAction, IClonable
 	{
 		public LightUnit(int maxhealth, int defense, int attack, int chance, int range) : base (maxhealth, defense, attack)
 		{
             Chance = chance;
 			Range = range;
+			Id = ++Unit.ID;
 		}
 
 		public int Chance { get; }
@@ -57,6 +58,14 @@ namespace ArmyStackGame.Units
 					.Where(type => type.BaseType != null && type.BaseType.IsGenericType && type.BaseType.GetGenericTypeDefinition() == baseImproveType)
 					.ToList();
 
+				for (int i = types.Count - 1; i >= 1; i--)
+				{
+					int j = new Random().Next(i + 1);
+					var temp = types[j];
+					types[j] = types[i];
+					types[i] = temp;
+				}
+
 				for (int i = 0; i < types.Count; i++)
 				{
 					var type = types[i];
@@ -81,7 +90,7 @@ namespace ArmyStackGame.Units
 
 		public override string ToString()
 		{
-			return $"Ligth Unit: {base.ToString()}";
+			return $"Ligth Unit #{Id}: {base.ToString()}";
 		}
 	}
 }

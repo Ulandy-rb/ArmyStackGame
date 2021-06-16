@@ -9,11 +9,12 @@ namespace ArmyStackGame.Army
 	class Army : IArmy
 	{
 		public List<IUnit> Units { get; set; }
-
+		public string Name { get; set; }
 		public bool IsAllDead => Units.Count == 0;
 
-		public Army(int cost, IUnitFactory factory)
+		public Army(string name, int cost, IUnitFactory factory)
 		{
+			Name = name;
 			Units = factory.CreateArmy(cost);
 		}
 

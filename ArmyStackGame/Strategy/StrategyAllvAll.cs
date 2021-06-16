@@ -35,7 +35,7 @@ namespace ArmyStackGame.Strategy
 
 			if (currUnit.IsFriendly)
 			{
-				startIndex = newCurrUnitPosition - range + 1;
+				startIndex = newCurrUnitPosition - range;
 				endIndex = newCurrUnitPosition + range;
 
 				if (startIndex < 0)
@@ -71,7 +71,7 @@ namespace ArmyStackGame.Strategy
 				startIndex++;
 			}
 			startIndex = startIndex + min - 1;
-			endIndex = endIndex + min - 1;
+			endIndex = endIndex + min;
 			if (endIndex > targetArmy.Units.Count - 1)
 				endIndex = targetArmy.Units.Count - 1;
 

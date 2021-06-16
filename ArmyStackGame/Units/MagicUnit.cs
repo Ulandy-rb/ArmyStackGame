@@ -20,6 +20,7 @@ namespace ArmyStackGame.Units
 		{
 			Chance = chance;
 			Range = range;
+			Id = ++Unit.ID;
 		}
 		
 		public void DoSpecialAction(IArmy targetArmy, int position, IEnumerable<int> targetRange)
@@ -48,7 +49,7 @@ namespace ArmyStackGame.Units
 		}
 		public override string ToString()
 		{
-			return $"Mag: {base.ToString()}";
+			return $"Mag #{Id}: {base.ToString()}";
 		}
 	}
 }

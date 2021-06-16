@@ -13,7 +13,7 @@ namespace ArmyStackGame.Temp
 		/// </summary>
 		public static void PrintError(string message)
 		{
-			Console.WriteLine($"🚫  { message }");
+			Console.WriteLine($"{ message }");
 		}
 
 		/// <summary>
@@ -22,14 +22,14 @@ namespace ArmyStackGame.Temp
 		public static void PrintMainMenu()
 		{
 			Console.WriteLine("Меню:");
-			Console.WriteLine("1️⃣  Новая игра");
-			Console.WriteLine("2️⃣  Сделать ход");
-			Console.WriteLine("3️⃣  Игра до победы");
-			Console.WriteLine("4️⃣  Показать армии");
-			Console.WriteLine("5️⃣  Выбрать стратегию боя");
-			Console.WriteLine("6️⃣  Ход назад");
-			Console.WriteLine("7️⃣  Ход вперед");
-			Console.WriteLine("8️⃣  Выход");
+			Console.WriteLine("1 Новая игра");
+			Console.WriteLine("2 Сделать ход");
+			Console.WriteLine("3 Игра до победы");
+			Console.WriteLine("4 Показать армии");
+			Console.WriteLine("5 Выбрать стратегию боя");
+			Console.WriteLine("6 Ход назад");
+			Console.WriteLine("7 Ход вперед");
+			Console.WriteLine("8 Выход");
 			Console.WriteLine();
 		}
 
@@ -68,10 +68,10 @@ namespace ArmyStackGame.Temp
 		public static void PrintSelectStrategyMenu()
 		{
 			Console.WriteLine("Выберите стратегию боя:");
-			Console.WriteLine("1️⃣  1 на 1");
-			Console.WriteLine("2️⃣  N на N");
-			Console.WriteLine("3️⃣  Все на всех");
-			Console.WriteLine("4️⃣  Отмена");
+			Console.WriteLine("1 1 на 1");
+			Console.WriteLine("2 3 на 3");
+			Console.WriteLine("3 Все на всех");
+			Console.WriteLine("4 Отмена");
 			Console.WriteLine();
 		}
 
@@ -131,35 +131,6 @@ namespace ArmyStackGame.Temp
 			} while (!isSuccessful);
 
 			return @value.Value;
-		}
-
-		/// <summary>
-		/// Считать N для стратегии "N на N"
-		/// </summary>
-		public static int ReadNForNVsNStrategy()
-		{
-			int? n = null;
-
-			var isSuccessful = false;
-			do
-			{
-				Console.Write("Введите N: ");
-
-				if (int.TryParse(Console.ReadLine(), out int input) && input > 1)
-				{
-					n = input;
-					isSuccessful = true;
-				}
-				else
-				{
-					var message = "Недопустимое значение, попробуйте еще раз.";
-					PrintError(message);
-				}
-
-				Console.WriteLine();
-			} while (!isSuccessful);
-
-			return n.Value;
 		}
 
 		#endregion

@@ -10,7 +10,7 @@ namespace ArmyStackGame.Units
 	{
 		public HeavyUnit(int maxhealth, int defense,  int attack) : base(maxhealth, defense, attack)
 		{
-
+			Id = ++Unit.ID;
 		}
 
 		//public int ImprovementsCount => 0;
@@ -29,7 +29,7 @@ namespace ArmyStackGame.Units
 
 		public override string ToString()
 		{
-			return $"Heavy Unit: {base.ToString()}";
+			return $"Heavy Unit #{Id}: {base.ToString()}";
 		}
 	}
 }
